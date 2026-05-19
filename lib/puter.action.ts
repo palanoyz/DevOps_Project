@@ -14,7 +14,7 @@ export const getCurrentUser = async () => {
   }
 }
 
-export const createProject = async({ item }: CreateProjectParams): Promise<DesignItem | null | undefined> => {
+export const createProject = async ({ item }: CreateProjectParams): Promise<DesignItem | null | undefined> => {
   const projectId = item.id;
 
   const hosting = await getOrCreateHostingConfig();
@@ -47,13 +47,13 @@ export const createProject = async({ item }: CreateProjectParams): Promise<Desig
     publicPath: _publicPath,
     ...rest
   } = item;
-  
+
   const payload = {
     ...rest,
     sourceImage: resolveSource,
     renderedImage: resolveRendered,
   }
-  
+
   try {
     // Call the Puter worker to store project in kv
 
