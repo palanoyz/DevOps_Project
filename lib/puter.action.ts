@@ -2,6 +2,7 @@ import puter from "@heyputer/puter.js";
 import { getOrCreateHostingConfig, uploadImageToHosting } from "./puter.hosting";
 import { isHostedUrl } from "./utils";
 import { PUTER_WORKER_URL } from "./constants";
+import type { CreateProjectParams, DesignItem } from "../type";
 
 export const signIn = async () => await puter.auth.signIn();
 

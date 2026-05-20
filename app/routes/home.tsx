@@ -6,6 +6,7 @@ import Upload from "../../components/Upload";
 import { useNavigate } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { createProject, getProjects } from "../../lib/puter.action";
+import type { DesignItem } from "../../type";
 
 export function meta({ }: Route.MetaArgs) {
   return [

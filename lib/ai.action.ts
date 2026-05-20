@@ -1,5 +1,6 @@
 import puter from "@heyputer/puter.js";
 import { ROOMIFY_RENDER_PROMPT } from "./constants";
+import type { Generate3DViewParams } from "../type";
 
 export const fetchAsDataUrl = async (url: string): Promise<string> => {
   const response = await fetch(url);
