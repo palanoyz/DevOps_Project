@@ -5,7 +5,7 @@ import Button from "../../components/ui/Button";
 import Upload from "../../components/Upload";
 import { useNavigate } from "react-router";
 import { useEffect, useRef, useState } from "react";
-import { createProject } from "../../lib/puter.action";
+import { createProject, getProjects } from "../../lib/puter.action";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -55,6 +55,16 @@ export default function Home() {
       isCreatingProjectRef.current = false;
     }
   }
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const items = await getProjects();
+
+      setProjects(items)
+    }
+
+    fetchProjects();
+  }, []);
 
   return (
     <div className="home">
@@ -116,7 +126,8 @@ export default function Home() {
             {projects.map(({ id, name, renderedImage, sourceImage, timestamp }) => (
               <div key={id} className="project-card group" onClick={() => navigate(`/visualizer/${id}`)}>
                 <div className="preview">
-                  <img src={renderedImage || sourceImage} alt="Project" />
+                  <img src={renderedImage || sourceImage} alt="Project"
+                  />
 
                   <div className="badge">
                     <span>Community</span>
